@@ -11,6 +11,11 @@ body {
   font-size: 62.5%;
 }
 
+.maxContainer {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -19,6 +24,20 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/predict02.jpg');
   background-position: center;
   background-size: cover;
+}
+
+.authing {
+  width: 100vw;
+  height: 100vh;
+  /* background: linear-gradient(#9D8822, #342D0B); */
+}
+
+.bgLogin {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),  url('./assets/predict02.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: ; */
 }
 
 .mont {
