@@ -6,7 +6,8 @@ import { usePredictionContext } from "../context/PredictionContext";
 Modal.setAppElement("#root");
 
 const ResultModal = () => {
-  const { modalIsOpen, setModalIsOpen } = usePredictionContext();
+  const [isProcessing, setIsProcessing] = useState(true)
+  const { modalIsOpen, setModalIsOpen, predict, coinTossPrediction, amountWon, isWin } = usePredictionContext();
 
   return (
     <div>
@@ -26,19 +27,32 @@ const ResultModal = () => {
       >
         <div className="flex flex-col items-center justify-center">
           <h2>Modal title</h2>
-          <div className=" w-[70%] h-[50vh] mx-auto flex flex-col items-center justify-center pt-8">
+          <div className=" w-[70%] mx-auto flex flex-col items-center justify-center pt-8">
             <RotateLoader
               color="#36d7b7"
               cssOverride={{}}
-              loading
+              loading={isProcessing}
               margin={86}
               size={30}
               speedMultiplier={5}
             />
           </div>
+          {!isProcessing &&
+          <div>{isWin ? `You won` : "You lose"}</div>
+          }
           <p>Modal Body</p>
-          {/* <button onClick={() => setModalIsOpen(false)}>Close</button> */}
-          <button onClick={() => setModalIsOpen(false)}>Close</button>
+          <button
+            onClick={() => {
+              coinTossPrediction(predict, 80);
+              setIsProcessing(false)
+              console.log("You chose", predict);
+            }}
+          >
+            Results
+          </button>
+          {!isProcessing &&
+          <button disabled={isProcessing} onClick={() => setModalIsOpen(false)}>Close</button>
+          }
         </div>
       </Modal>
     </div>
