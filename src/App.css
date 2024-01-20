@@ -12,7 +12,7 @@ body {
 }
 
 .maxContainer {
-  max-width: 130rem;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
@@ -24,12 +24,6 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/predict02.jpg');
   background-position: center;
   background-size: cover;
-}
-
-.authing {
-  width: 100vw;
-  height: 100vh;
-  /* background: linear-gradient(#9D8822, #342D0B); */
 }
 
 .bgLogin {

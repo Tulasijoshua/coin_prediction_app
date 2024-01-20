@@ -33,60 +33,59 @@ const ResultModal = () => {
       >
         <div className="flex flex-col items-center justify-center">
           {isProcessing ? (
-            <h2 className="text-[1.5rem] font-semibold text-center">
+            <h2 className="xl:text-[1.5rem] text-[1.3rem] font-semibold text-center">
               Processing
             </h2>
           ) : (
-            <h2 className="text-[1.5rem] font-semibold text-center">Results</h2>
+            <h2 className="xl:text-[1.5rem] text-[1.3rem] font-semibold text-center">Results</h2>
           )}
           {isProcessing && (
-            <div className="w-[70%] mx-auto my-[7rem] flex flex-col items-center justify-center pt-[1rem">
+            <div className="w-[70%] mx-auto 2xl:my-[9rem] xl:my-[7rem] my-[5rem] flex flex-col items-center justify-center pt-[1rem">
               <RotateLoader
                 color="#2563EB"
                 cssOverride={{}}
                 loading={isProcessing}
-                margin={60}
+                margin={40}
                 size={30}
                 speedMultiplier={5}
               />
             </div>
           )}
           {!isProcessing && (
-            <div className="mont">
+            <div className="mont my-[0.2rem]">
               {isWin ? (
                 <div className="">
-                  <div className="w-[200px] h-[150px mx-auto ">
+                  <div className="2xl:w-[250px] w-[150px] 2xl:h-[250px] h-[150px] mx-auto ">
                     <img
                       className="w-full h-full "
                       src={congrats}
                       alt="Congratulations message"
                     />
                   </div>
-                  <div className="pt-[1rem]">
-                    <div className="text-center text-[1.2rem]">
-                      Congratulations!🎊 You predicted {predict}, the coin
-                      landed on {result}.{" "}
+                  <div className="2xl:pt-[2rem] pt-[1rem]">
+                    <div className="text-center 2xl:text-[1.8rem] text-[1.2rem]">
+                      Congratulations!🎊 You predicted {predict}.
                     </div>
-                    <div className="text-center text-[1.2rem]">
+                    <div className="text-center 2xl:text-[1.8rem] text-[1.2rem]">
                       You won GHS {amountWon} cedis.
                     </div>
                   </div>
                 </div>
               ) : (
                 <div>
-                  <div className="w-[150px] h-[200px] mx-auto">
+                  <div className="2xl:w-[200px] xl:w-[150px] w-[130px] 2xl:h-[250px] xl:h-[150px] h-[130px] mx-auto">
                     <img
                       className="w-full h-full object-cover"
                       src={loss}
                       alt="Lost message"
                     />
                   </div>
-                  <div className="pt-[1rem]">
-                    <div className="text-center text-[1.2rem]">
+                  <div className="2xl:pt-[1.5rem] pt-[1rem]">
+                    <div className="text-center 2xl:text-[1.8rem] xl:text-[1.2rem] text-[1rem]">
                       Sorry!😬 You predicted {predict}, but the coin landed on{" "}
                       {result}.
                     </div>
-                    <div className="text-center text-[1.2rem] ">
+                    <div className="text-center 2xl:text-[1.8rem] xl:text-[1.2rem] text-[1rem] ">
                       You lost GHS{amount} cedis.
                     </div>
                   </div>
