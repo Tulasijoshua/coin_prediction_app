@@ -5,8 +5,10 @@ const PredictionContext = createContext();
 const PredictionProvider = ({children}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [predict, setPredict] = useState('');
+    const [amount, setAmount] = useState(0);
     const [isWin, setIsWin] = useState(null);
     const [amountWon, setAmountWon] = useState();
+    const [result, setResult] = useState(null)
 
     function coinTossPrediction(userPrediction, stakeAmount) {
         // Validating user input
@@ -21,7 +23,8 @@ const PredictionProvider = ({children}) => {
           return "Invalid stake amount. Please enter a positive number.";
         }
     
-        const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
+        const coinResult = Math.random() > 0.5 ? "Head" : "Tail";
+        setResult(coinResult)
     
         const isWin = userPrediction === coinResult;
         setIsWin(isWin);
@@ -51,7 +54,11 @@ const PredictionProvider = ({children}) => {
             setPredict, 
             isWin,
             amountWon,
-            coinTossPrediction
+            coinTossPrediction,
+            amount, 
+            setAmount,
+            result,
+             setResult,
         }}>
         {children}
     </PredictionContext.Provider>
