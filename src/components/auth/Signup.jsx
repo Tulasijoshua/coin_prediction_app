@@ -2,17 +2,31 @@ import React, { useState } from 'react'
 import bgImg from '../../assets/predict02.jpg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../../context/authContext'
 
 const Login = () => {
     const navigate = useNavigate()
-    const [state, setState] = useState({
-        details: { email: '', password: '' }
+    const { signup } = useAuthContext();
+    const [formValues, setFormValues] = useState({
+        fullName: "",
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
     })
 
-    const SubmitLogin = (e) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ 
+            ...formValues, 
+            [name]: value 
+        });
+      };
+
+    const handleSignup = (e) => {
         e.preventDefault();
-
-
+        signup(formValues);
+        navigate('/login')
     }
     return (
         <div className='w-full relative h-[100vh] overflow-hidden'>
@@ -24,7 +38,7 @@ const Login = () => {
                             <p className='text-[1.1rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eius.</p>
                         </div>
                         <section className="w-[80%] mx-auto py-[2rem]">
-                            <form onSubmit={(e)=>SubmitLogin(e)} className='w-full flex flex-col justify-center items-center'>
+                            <form onSubmit={handleSignup} className='w-full flex flex-col justify-center items-center'>
                                 <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -33,7 +47,7 @@ const Login = () => {
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
 
-                                    <input value={state.details.email} onChange={(e)=>setState({...state, details: {...state.details, email: e.target.value}})} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your Name' />
+                                    <input type="text" name='fullName' value={formValues.fullName} onChange={handleChange} className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your Name' />
                                 </div>
                                 <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
@@ -44,7 +58,7 @@ const Login = () => {
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
 
-                                    <input value={state.details.email} onChange={(e)=>setState({...state, details: {...state.details, email: e.target.value}})} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter username' />
+                                    <input name='username' value={formValues.username} onChange={handleChange} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter username' />
                                 </div>
                                 <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
@@ -54,7 +68,7 @@ const Login = () => {
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
 
-                                    <input value={state.details.email} onChange={(e)=>setState({...state, details: {...state.details, email: e.target.value}})} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your email address' />
+                                    <input name='email' value={formValues.email} onChange={handleChange} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your email address' />
                                 </div>
                                 <div className='w-full mb-10 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
@@ -63,7 +77,16 @@ const Login = () => {
                                         </svg>
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
-                                    <input value={state.details.password} onChange={(e)=>setState({...state, details: {...state.details, password: e.target.value}})} type="password" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your password' />
+                                    <input name='password' value={formValues.password} onChange={handleChange} type="password" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your password' />
+                                </div>
+                                <div className='w-full mb-10 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                    <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                        </svg>
+                                    </div>
+                                    <div className='text-[2rem] font-light'>|</div>
+                                    <input name='confirmPassword' value={formValues.confirmPassword} onChange={handleChange} type="password" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Confirm your Password' />
                                 </div>
 
                                 <div className='w-full flex justify-between items-center mb-10'>

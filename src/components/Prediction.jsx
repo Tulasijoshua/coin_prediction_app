@@ -4,9 +4,10 @@ import { usePredictionContext } from "../context/PredictionContext";
 import { FcMoneyTransfer } from "react-icons/fc";
 import head from "../assets/head.jpg";
 import tail from "../assets/tail.jpg";
+import { useAuthContext } from "../context/authContext";
 
 const Prediction = () => {
-
+  const { logout } = useAuthContext();
   const {
     modalIsOpen,
     setModalIsOpen,
@@ -34,6 +35,9 @@ const Prediction = () => {
         <h2 className="text-6xl text-[#fff] italic font-semibold">
           Predict & Win
         </h2>
+        <div className="absolute top-[2rem] right-[2rem]">
+          <button onClick={logout} className="px-[1.5rem] py-[0.5rem] text-[1rem] bg-blue-600 text-white ">Logout</button>
+        </div>
       </div>
       <div className="w-[70%] mx-auto pt-[8rem] pb-[3rem]">
         <div className="pb-[2rem]">

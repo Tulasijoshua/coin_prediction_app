@@ -2,18 +2,32 @@ import React, { useState } from 'react'
 import bgImg from '../../assets/predict02.jpg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../../context/authContext'
 
 const Login = () => {
+    const { login } = useAuthContext()
     const navigate = useNavigate()
-    const [state, setState] = useState({
-        details: { email: '', password: '' }
+    const [forms, setForms] = useState({
+        username: "",
+        email: "",
+        password: "",
     })
 
-    const SubmitLogin = (e) => {
-        e.preventDefault();
-
-
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForms({ 
+            ...forms, 
+            [name]: value 
+        });
     }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        login(forms)
+        navigate('/')
+    }
+
+
     return (
         <div className='w-full relative h-[100vh] '>
             <div className='bgLogin w-full h-full flex text-white flex-col justify-center items-center z-10'>
@@ -24,7 +38,17 @@ const Login = () => {
                             <p className='text-[1.1rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eius.</p>
                         </div>
                         <section className="w-[80%] mx-auto py-[2rem]">
-                            <form onSubmit={(e)=>SubmitLogin(e)} className='w-full flex flex-col justify-center items-center'>
+                            <form onSubmit={handleLogin} className='w-full flex flex-col justify-center items-center'>
+                                <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                    <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                    </div>
+                                    <div className='text-[2rem] font-light'>|</div>
+
+                                    <input name='username' value={forms.username} onChange={handleChange} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your username' />
+                                </div>
                                 <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -33,7 +57,7 @@ const Login = () => {
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
 
-                                    <input value={state.details.email} onChange={(e)=>setState({...state, details: {...state.details, email: e.target.value}})} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your email address' />
+                                    <input name='email' value={forms.email} onChange={handleChange} type="email" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your email address' />
                                 </div>
                                 <div className='w-full mb-10 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
@@ -42,7 +66,7 @@ const Login = () => {
                                         </svg>
                                     </div>
                                     <div className='text-[2rem] font-light'>|</div>
-                                    <input value={state.details.password} onChange={(e)=>setState({...state, details: {...state.details, password: e.target.value}})} type="password" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your password' />
+                                    <input name='password' value={forms.password} onChange={handleChange} type="password" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your password' />
                                 </div>
 
                                 <div className='w-full flex justify-between items-center mb-10'>
