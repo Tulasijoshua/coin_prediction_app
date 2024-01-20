@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import ResultModal from "./ResultModal";
+import { usePredictionContext } from "../context/PredictionContext";
 
 const Prediction = () => {
-    const [isProcessing, setIsProcessing] = useState(true)
-    const [isWin, setIsWin] = useState(null)
-    const [amountWon, setAmountWon] = useState()
-    const [results, setResults] = useState()
+  
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isWin, setIsWin] = useState(null);
+  const [amountWon, setAmountWon] = useState();
+  const [results, setResults] = useState();
+  
+  const {modalIsOpen, setModalIsOpen} = usePredictionContext()
 
   function coinTossPrediction(userPrediction, stakeAmount) {
     // Validating user input
-    // setIsProcessing(true)
     if (
       typeof userPrediction !== "string" ||
       (userPrediction !== "Head" && userPrediction !== "Tail")
@@ -23,11 +27,10 @@ const Prediction = () => {
     const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
 
     const isWin = userPrediction === coinResult;
-    setIsWin(isWin)
+    setIsWin(isWin);
 
     const newAmount = isWin ? 2 * stakeAmount : 0;
-    setAmountWon(newAmount)
-    setIsProcessing(false)
+    setAmountWon(newAmount);
 
     // const resultMessage = isWin
     //   ? `Congratulations! You predicted ${userPrediction}. You won ${newAmount} units.`
@@ -40,15 +43,25 @@ const Prediction = () => {
   const userPrediction = "Tail";
   const stakeAmount = 70;
 
-//   const roundResult = coinTossPrediction(userPrediction, stakeAmount);
-//   alert(roundResult);
+  //   const roundResult = coinTossPrediction(userPrediction, stakeAmount);
+  //   alert(roundResult);
 
   return (
     <div>
       <h2>Predict & Win</h2>
       <div>{isProcessing && `Loading...`}</div>
-      <div>{isWin ? `You won` : 'You lose'}</div>
-      <button onClick={() => {coinTossPrediction('Tail', 70); console.log(isWin ? `You won` : 'You lose')}}>Stake</button>
+      <div>{isWin ? `You won` : "You lose"}</div>
+      <div className="py-5">
+        
+      </div>
+      {modalIsOpen && 
+        <ResultModal />
+      }
+        <button
+          onClick={() => setModalIsOpen(true)}
+        >
+          Stake
+        </button>
     </div>
   );
 };
