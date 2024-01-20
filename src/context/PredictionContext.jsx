@@ -32,19 +32,7 @@ const PredictionProvider = ({children}) => {
         const newAmount = isWin ? 2 * stakeAmount : 0;
         setAmountWon(newAmount);
     
-        // const resultMessage = isWin
-        //   ? `Congratulations! You predicted ${userPrediction}. You won ${newAmount} units.`
-        //   : `Sorry! You predicted ${userPrediction}, but the coin landed on ${coinResult}. You lost ${stakeAmount} units.`;
-    
-        // return setResults(resultMessage);
       }
-    
-      // Example usage:
-      const userPrediction = "Tail";
-      const stakeAmount = 70;
-    
-      //   const roundResult = coinTossPrediction(userPrediction, stakeAmount);
-      //   alert(roundResult);
 
     return <PredictionContext.Provider 
         value={{
