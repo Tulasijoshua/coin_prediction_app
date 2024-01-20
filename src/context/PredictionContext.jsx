@@ -5,13 +5,13 @@ const PredictionContext = createContext();
 const PredictionProvider = ({children}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [predict, setPredict] = useState('');
-    const [amount, setAmount] = useState(0);
     const [isWin, setIsWin] = useState(null);
     const [amountWon, setAmountWon] = useState();
-    const [result, setResult] = useState(null)
+    const [result, setResult] = useState('')
+    const [processedResult, setProcessedResult] = useState(null)
+    const [amount, setAmount] = useState('');
 
     function coinTossPrediction(userPrediction, stakeAmount) {
-        // Validating user input
         if (
           typeof userPrediction !== "string" ||
           (userPrediction !== "Head" && userPrediction !== "Tail")
@@ -53,12 +53,14 @@ const PredictionProvider = ({children}) => {
             predict, 
             setPredict, 
             isWin,
-            amountWon,
-            coinTossPrediction,
             amount, 
             setAmount,
+            amountWon,
+            coinTossPrediction,
             result,
-             setResult,
+            setResult,
+            processedResult, 
+            setProcessedResult,
         }}>
         {children}
     </PredictionContext.Provider>

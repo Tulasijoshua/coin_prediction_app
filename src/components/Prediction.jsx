@@ -6,30 +6,36 @@ import head from "../assets/head.jpg";
 import tail from "../assets/tail.jpg";
 
 const Prediction = () => {
+
   const {
     modalIsOpen,
     setModalIsOpen,
     predict,
     setPredict,
-    amount,
-    setAmount,
     coinTossPrediction,
-    amountWon,
-    isWin
+    amount, 
+    setAmount,
+    setProcessedResult
   } = usePredictionContext();
 
-  const handleChange = (e) => {
-    setAmount(e.target.value);
-  };
+  const handleSubmit = () => {
+    const processedResult = coinTossPrediction(
+      predict,
+      parseInt(amount, 10),
+    );
+    setProcessedResult(processedResult)
+
+    setModalIsOpen(true)
+  }
 
   return (
     <div className="w-full">
-      <div className="navbg w-full h-[100px] flex flex-col justify-center items-center">
+      <div className="navbg w-full h-[100px] flex flex-col justify-center items-center fixed">
         <h2 className="text-6xl text-[#fff] italic font-semibold">
           Predict & Win
         </h2>
       </div>
-      <div className="w-[70%] mx-auto py-[3rem]">
+      <div className="w-[70%] mx-auto pt-[8rem] pb-[3rem]">
         <div className="pb-[2rem]">
           <div className="mont w-[45%] mx-auto pb-[2rem] text-center text-[1.5rem] font-medium italic leading-[2rem]">
             Just predict a side of the coin & get{" "}
@@ -40,7 +46,7 @@ const Prediction = () => {
             Stake now
           </div>
         </div>
-        {/* <div className="w-[70%] mx-auto ">
+        <div className="w-[70%] mx-auto ">
           <h2 className="text-[1.3rem] font-semibold text-red-600 capitalize">
             A must read!!!
           </h2>
@@ -55,7 +61,7 @@ const Prediction = () => {
               Participants must adhere to local gambling laws and regulations.
             </p>
           </div>
-        </div> */}
+        </div>
         <div className="w-full">
           <div className="w-full py-[1.5rem] flex justify-center items-center gap-[1rem]">
             <h2 className="text-[2rem] font-semibold">Win massive </h2>
@@ -70,7 +76,7 @@ const Prediction = () => {
                 className="w-[100px] h-full px-[0.5rem] text-[1.2rem] text-black border focus:outline-none"
                 type="number"
                 value={amount}
-                onChange={handleChange}
+                onChange={(e) => setAmount(e.target.value)}
               />
             </div>
           </div>
@@ -79,30 +85,30 @@ const Prediction = () => {
               <div className="w-[150px] h-[150px]">
                 <img className="w-full h-full" src={head} alt="" />
               </div>
-              <button
-                className="mt-[2rem] py-[0.5rem] px-[1.5rem] bg-blue-600 rounded-md text-[1rem] text-white font-semibold active:bg-blue-700"
+              <div
+                className="mt-[2rem] py-[0.5rem] px-[1.5rem] bg-blue-600 rounded-md text-[1rem] text-white font-semibold active:bg-blue-700 cursor-pointer"
                 onClick={() => setPredict("Head")}
               >
                 Head
-              </button>
+              </div>
             </div>
             <div className="w-fit text-center">
               <div className="w-[150px] h-[150px]">
                 <img className="w-full h-full" src={tail} alt="" />
               </div>
-              <button
-                className="mt-[2rem] py-[0.5rem] px-[1.5rem] bg-blue-600 rounded-md text-[1rem] text-white font-semibold active:bg-blue-700"
+              <div
+                className="mt-[2rem] py-[0.5rem] px-[1.5rem] bg-blue-600 rounded-md text-[1rem] text-white font-semibold active:bg-blue-700 cursor-pointer"
                 onClick={() => setPredict("Tail")}
               >
                 Tail
-              </button>
+              </div>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center pt-[2rem]">
             <button
-              disabled={predict === ""}
-              className="py-[0.7rem] px-[1.7rem] text-[1rem] font-semibold text-white bg-red-600 rounded-md disabled:bg-red-300"
-              onClick={() => setModalIsOpen(true)}
+              disabled={predict == "" || amount == ""}
+              className="py-[0.7rem] px-[1.7rem] text-[1rem] font-semibold text-white bg-red-600 rounded-md disabled:bg-red-300 "
+              onClick={handleSubmit}
             >
               Stake
             </button>

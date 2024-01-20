@@ -11,6 +11,10 @@ body {
   font-size: 62.5%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .navbg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/predict02.jpg');
   background-position: center;
