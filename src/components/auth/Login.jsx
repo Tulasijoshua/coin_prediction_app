@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import bgImg from '../../assets/predict02.jpg'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/authContext'
 
 const Login = () => {
@@ -24,12 +24,11 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         login(forms)
-        navigate('/')
     }
 
 
     return (
-        <div className='w-full relative h-[100vh] '>
+        <div className='w-full relative h-[100vh] overflow-hidden'>
             <div className='bgLogin w-full h-full flex text-white flex-col justify-center items-center z-10'>
                 <div className='max-w-[30rem] w-[40%]  mx-auto  text-white'>
                     <div className='w-full h-full'>
@@ -74,7 +73,7 @@ const Login = () => {
                                         <input type="checkbox" className='w-4 h-4 bg-transparent' />
                                         <div className='text-[1rem]'>Stay logged in</div>
                                     </div>
-                                    <div className='text-[1rem]'>I've forgotten my password</div>
+                                    <div className='text-[1rem]'>Don't have an account? <NavLink to='/signup'>Signup</NavLink> </div>
                                 </div>
 
                                 <button className='py-[0.5rem] px-[4rem] text-[1.2rem] font-medium uppercase border border-white'>sign in </button>

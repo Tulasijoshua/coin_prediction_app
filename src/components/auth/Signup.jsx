@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import bgImg from '../../assets/predict02.jpg'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/authContext'
 
 const Login = () => {
@@ -94,10 +94,10 @@ const Login = () => {
                                         <input type="checkbox" className='w-4 h-4 bg-transparent' />
                                         <div className='text-[1rem]'>Stay logged in</div>
                                     </div>
-                                    <div className='text-[1rem]'>I've forgotten my password</div>
+                                    <div className='text-[1rem]'>Already have an account? <NavLink to='/login'>Login</NavLink></div>
                                 </div>
 
-                                <button className='py-[0.5rem] px-[4rem] text-[1.2rem] font-medium uppercase border border-white'>sign in </button>
+                                <button className='py-[0.5rem] px-[4rem] text-[1.2rem] font-medium uppercase border border-white'>Sign up</button>
                             </form>
                         </section>
                     </div>
