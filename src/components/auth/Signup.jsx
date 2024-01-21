@@ -39,7 +39,7 @@ const Login = () => {
                         </div>
                         <section className="w-[80%] mx-auto py-[2rem]">
                             <form onSubmit={handleSignup} className='w-full flex flex-col justify-center items-center'>
-                                <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                <div className='w-full mb-8 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -49,7 +49,7 @@ const Login = () => {
 
                                     <input type="text" name='fullName' value={formValues.fullName} onChange={handleChange} className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your Name' />
                                 </div>
-                                <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                <div className='w-full mb-8 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -60,7 +60,7 @@ const Login = () => {
 
                                     <input name='username' value={formValues.username} onChange={handleChange} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter username' />
                                 </div>
-                                <div className='w-full mb-12 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                <div className='w-full mb-8 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -70,7 +70,7 @@ const Login = () => {
 
                                     <input name='email' value={formValues.email} onChange={handleChange} type="text" className="w-[70%] text-[1.1rem] placeholder:text-white bg-transparent border-none outline-none" placeholder='Enter your email address' />
                                 </div>
-                                <div className='w-full mb-10 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
+                                <div className='w-full mb-7 flex items-center gap-[0.7rem] py-[0.2rem] px-[1rem] border border-white'>
                                     <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
