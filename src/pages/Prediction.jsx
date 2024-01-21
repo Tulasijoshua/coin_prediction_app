@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ResultModal from "./ResultModal";
+import ResultModal from "../components/ResultModal";
 import { usePredictionContext } from "../context/PredictionContext";
 import { FcMoneyTransfer } from "react-icons/fc";
 import head from "../assets/head.jpg";

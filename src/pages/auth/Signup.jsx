@@ -4,7 +4,7 @@ import axios from 'axios'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/authContext'
 
-const Login = () => {
+const Signup = () => {
     const navigate = useNavigate()
     const { signup } = useAuthContext();
     const [formValues, setFormValues] = useState({
@@ -107,4 +107,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Signup

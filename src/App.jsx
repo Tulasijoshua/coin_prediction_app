@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-
-import Prediction from './components/Prediction'
+import Prediction from './pages/Prediction';
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
 import ResultModal from './components/ResultModal'
-import Signup from './components/auth/Signup'
-import Login from './components/auth/Login'
 import PrivateRoute from './components/PrivateRoute'
 
 function App() {

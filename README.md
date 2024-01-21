@@ -15,23 +15,33 @@ Note: The program should runs till the user quit it.
 
 # Screenshot of the user interface
 
-*Caption: This is the sign up page of the app.*
+*Sign up page.*
 
 ![Signup page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/signup.png)
 
+*Sign in page.*
+
 ![Login page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/login.png)
+
+*Prediction page.*
 
 ![Prediction page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/prediction_page.png)
 
+*Prediction page when fields are empty.*
 ![Empty Prediction fields](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/empty_prediction_fields.png)
 
+*Prediction page when fields are filled.*
 ![Field Prediction field](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/filled_prediction_fields.png)
 
-![Processing page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/processing_page.png)
+*Processing modal.*
+![Processing modal](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/processing_page.png)
 
+*Loss modal.*
 ![Loss page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/loss_page.png)
 
+*Win modal.*
 ![Win page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/win_page.png)
+
 
 # React + Vite
 
