@@ -12,7 +12,7 @@ const ResultModal = () => {
   const {
     amount,
     setAmount,
-    processedResult,
+    coinPrediction,
     modalIsOpen,
     setModalIsOpen,
     predict,
@@ -98,7 +98,7 @@ const ResultModal = () => {
               <button
                 className="py-[0.5rem] px-[1.5rem] rounded-md text-[1rem] text-white font-semibold bg-blue-600 hover:bg-blue-700"
                 onClick={() => {
-                  processedResult;
+                  coinPrediction;
                   setIsProcessing(false);
                   console.log("You chose", predict, "landed on", result);
                 }}

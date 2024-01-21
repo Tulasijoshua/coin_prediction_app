@@ -16,15 +16,22 @@ const Prediction = () => {
     coinTossPrediction,
     amount, 
     setAmount,
-    setProcessedResult
+    setCoinPrediction
   } = usePredictionContext();
 
   const handleSubmit = () => {
-    const processedResult = coinTossPrediction(
+
+    const num = parseInt(amount, 10);
+    if (num < 0) {
+      alert('Enter valid amount to proceed!');
+      return
+    }
+
+    const coinPrediction = coinTossPrediction(
       predict,
-      parseInt(amount, 10),
+      num,
     );
-    setProcessedResult(processedResult)
+    setCoinPrediction(coinPrediction)
 
     setModalIsOpen(true)
   }

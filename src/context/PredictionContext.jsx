@@ -8,20 +8,10 @@ const PredictionProvider = ({children}) => {
     const [isWin, setIsWin] = useState(null);
     const [amountWon, setAmountWon] = useState();
     const [result, setResult] = useState('')
-    const [processedResult, setProcessedResult] = useState(null)
+    const [coinPrediction, setCoinPrediction] = useState(null)
     const [amount, setAmount] = useState('');
 
     function coinTossPrediction(userPrediction, stakeAmount) {
-        if (
-          typeof userPrediction !== "string" ||
-          (userPrediction !== "Head" && userPrediction !== "Tail")
-        ) {
-          return "Invalid prediction. Please choose 'Head' or 'Tail'.";
-        }
-    
-        if (typeof stakeAmount !== "number" || stakeAmount <= 0) {
-          return "Invalid stake amount. Please enter a positive number.";
-        }
     
         const coinResult = Math.random() > 0.5 ? "Head" : "Tail";
         setResult(coinResult)
@@ -47,8 +37,8 @@ const PredictionProvider = ({children}) => {
             coinTossPrediction,
             result,
             setResult,
-            processedResult, 
-            setProcessedResult,
+            coinPrediction, 
+            setCoinPrediction,
         }}>
         {children}
     </PredictionContext.Provider>
