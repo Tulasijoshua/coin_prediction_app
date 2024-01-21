@@ -1,3 +1,21 @@
+# COIN TOSS PREDICT AND WIN APP
+
+This is a Coin Toss Predict and Win App. 
+A coin has two sides, a HEAD and a TAIL, so this app allows users to predict the side of the coin to occur. For each round, the user stake with an amount. If he wins, he gets x2 of his stake amount. If he looses, he lose his stake amount.
+Note: The program should runs till the user quit it.
+
+- This is a simple interface for the app.
+- The focus is main on the logic that makes the app work perfectly.
+
+
+# Authentication 
+- A user must sign up.
+- And use the sign up information to login to get access to the page.
+
+
+# Screenshot of the user interface
+
+*Caption: This is the sign up page of the app.*
 
 ![Signup page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/signup.png)
 
