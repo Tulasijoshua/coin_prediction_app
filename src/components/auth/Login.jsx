@@ -30,7 +30,7 @@ const Login = () => {
     return (
         <div className='w-full relative h-[100vh] overflow-hidden'>
             <div className='bgLogin w-full h-full flex text-white flex-col justify-center items-center z-10'>
-                <div className='max-w-[30rem] w-[40%]  mx-auto  text-white'>
+                <div className='max-w-[30rem] w-[40%]  mx-auto  text-white overflow-auto'>
                     <div className='w-full h-full'>
                         <div className='w-full text-center pb-4'>
                             <h2 className='text-[3rem] capitalize font-semibold'>welcome back!</h2>

@@ -34,7 +34,7 @@ const Login = () => {
                 <div className='max-w-[30rem] w-[40%] py-[1rem]  mx-auto  text-white overflow-auto'>
                     <div className='w-full h-full'>
                         <div className='w-full text-center pb-4'>
-                            <h2 className='text-[3rem] capitalize font-semibold'>welcome back!</h2>
+                            <h2 className='text-[3rem] font-semibold'>Sign up now</h2>
                             <p className='text-[1.1rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eius.</p>
                         </div>
                         <section className="w-[80%] mx-auto py-[2rem]">
