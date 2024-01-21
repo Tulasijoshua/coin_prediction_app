@@ -13,7 +13,7 @@ Note: The program should runs till the user quit it.
 - And use the sign up information to login to get access to the page.
 
 
-# Screenshot of the user interface
+# Screenshots of the user interface
 
 *Sign up page.*
 
@@ -28,18 +28,23 @@ Note: The program should runs till the user quit it.
 ![Prediction page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/prediction_page.png)
 
 *Prediction page when fields are empty.*
+
 ![Empty Prediction fields](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/empty_prediction_fields.png)
 
 *Prediction page when fields are filled.*
+
 ![Field Prediction field](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/filled_prediction_fields.png)
 
 *Processing modal.*
+
 ![Processing modal](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/processing_page.png)
 
 *Loss modal.*
+
 ![Loss page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/loss_page.png)
 
 *Win modal.*
+
 ![Win page](https://github.com/Tulasijoshua/coin_prediction_app/raw/main/src/assets/readMe_imgs/win_page.png)
 
 

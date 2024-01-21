@@ -12,7 +12,6 @@ function App() {
   return (
     <>
     <Routes>
-      {/* <Route path='/' element={<PrivateRoute><Prediction /></PrivateRoute>} /> */}
       <Route path='/' element={<PrivateRoute element={<Prediction />} />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
